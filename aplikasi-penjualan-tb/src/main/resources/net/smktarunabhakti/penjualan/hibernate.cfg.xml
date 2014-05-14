@@ -1,1 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.show_sql">
+            true
+        </property>
+        <property name="hibernate.format_sql">
+            true
+        </property>
+        <property name="hibernate.hbm2ddl.auto">
+            create 
+            <!--
+            #create: Jika Tabel sudah ada, tabel lama akan di kosongkan datanya 
+            #create-drop: Jika tabel sudah ada maka di drop/dihapus lalu membuat tabel yang baru.
+            #update: hanya mengupdate datanya jika tabel sudah ada, jika tidak ada maka membuat tabel seperti biasa
+            #validate
+            -->
+        </property>
+        <!-- Untuk Mendaftarkan Tabel apa saja yang akan dibuat : barang,penjualan,dan penjualandetail -->
+        <mapping class="net.smktarunabhakti.penjualan.domain.Barang"/>
+        <mapping class="net.smktarunabhakti.penjualan.domain.Penjualan"/>
+        <mapping class="net.smktarunabhakti.penjualan.domain.PenjualanDetail"/>
+    </session-factory>
+</hibernate-configuration>
