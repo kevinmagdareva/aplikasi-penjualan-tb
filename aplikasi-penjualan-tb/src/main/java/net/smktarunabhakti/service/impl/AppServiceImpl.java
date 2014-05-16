@@ -1,10 +1,8 @@
 package net.smktarunabhakti.service.impl;
 
-import java.awt.print.Pageable;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,7 +40,9 @@ public class AppServiceImpl implements AppService{
 		{
 			p = new PageRequest(0, 20);
 		}
-		return barangDao.findAll(p);	}
+		return barangDao.findAll(p);
+		
+	}
 
 	public Barang cariBarangById(String id) {
 		if(!StringUtils.hasText(id))
@@ -56,5 +56,6 @@ public class AppServiceImpl implements AppService{
 	public Long countSemuaBarang() {
 		return barangDao.count();
 	}
+
 	
 }
