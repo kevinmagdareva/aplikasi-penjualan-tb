@@ -1,1 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+          http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+          http://www.springframework.org/schema/context/spring-context-2.5.xsd/
+          spring-spring-context-2.5.xsd-3.2.3.RELEASE.xsd
+          http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+          
+">
+
+<context:component-scan base-package="
+	net.smktarunabhakti.penjualan.ui.controller"/>
+	<!-- Configures the @controller progaming model -->
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean class="
+			org.springframework.data.web.PageableArgumentResolver"/>
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+	<mvc:default-servlet-handler />
+</beans>
