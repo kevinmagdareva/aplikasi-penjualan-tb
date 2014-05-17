@@ -21,12 +21,14 @@ xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 <context:annotation-config/> 
 <tx:annotation-driven/> 
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" p:driverClassName="${jdbc.driver}" p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}" p:maxWait="40000" p:maxActive="80" p:maxIdle="20" /> 
-<bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transaction"> 
+
+<bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager"> 
     <property name="entityManagerFactory" ref="entityManagerFactory" /> 
     <property name="jpaDialect"> 
         <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/> 
     </property> 
 </bean> 
+
 <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
     <property name="dataSource" ref="dataSource"/> 
     <property name="packagesToScan" value="net.smktarunabhakti.penjualan.domain"/> 
@@ -43,6 +45,8 @@ xmlns:jpa="http://www.springframework.org/schema/data/jpa"
         </props> 
     </property> 
 </bean>
+
+
 
 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" 
       p:dataSource-ref="dataSource" 
