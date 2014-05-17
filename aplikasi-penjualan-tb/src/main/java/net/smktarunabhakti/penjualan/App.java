@@ -28,8 +28,8 @@ public class App
     private static void saveBarang()
     {
     	Barang b = new Barang();
-    	b.setKodeBarang("1");
-    	b.setNamaBarang("nama");
+    	b.setKodeBarang("2");
+    	b.setNamaBarang("barang suram");
     	appService.simpanBarang(b);
     }
     
