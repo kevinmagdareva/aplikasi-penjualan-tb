@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package net.smktarunabhakti.penjualan.domain;
 
 import java.io.Serializable;
@@ -10,28 +16,24 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
-*
-* @author jimmy
-*/
+ *
+ * @author armadeas
+ */
 @Entity
-@Table(name = "m_barang")
-public class Barang implements Serializable {
-
+@Table(name="m_barang")
+public class Barang implements Serializable{
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
-
+    
     @NotNull
-    @Column(name = "kode_barang", nullable = false, length = 5)
-    // varchar(5), default dari string adalah varchar(255)
+    @Column(name = "kode_barang", nullable = false, length = 5)    
     private String kodeBarang;
-
     @NotNull
     @Column(name = "nama_barang", nullable = false)
-    // nama_barang varchar(255) NOT NULL
     private String namaBarang;
-
+    
     public String getId() {
         return id;
     }
@@ -55,5 +57,6 @@ public class Barang implements Serializable {
     public void setNamaBarang(String namaBarang) {
         this.namaBarang = namaBarang;
     }
-
+    
+    
 }

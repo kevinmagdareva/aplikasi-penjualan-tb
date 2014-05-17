@@ -1,9 +1,7 @@
 package net.smktarunabhakti.penjualan;
 
 import net.smktarunabhakti.penjualan.domain.Barang;
-import net.smktarunabhakti.penjualan.domain.Penjualan;
 import net.smktarunabhakti.penjualan.service.AppService;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,29 +11,21 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class App 
 {
-    private static ApplicationContext appCtx;
+    private static  ApplicationContext appCtx;
     private static AppService appService;
-    
     public static void main( String[] args )
     {
-        appCtx = new ClassPathXmlApplicationContext("classpath:net/smktarunabhakti/penjualan/applicationContext.xml");
-        
+        appCtx = new ClassPathXmlApplicationContext(
+        "classpath:net/smktarunabhakti/penjualan/"
+        + "applicationContext.xml");
         appService = (AppService)appCtx.getBean("appService");
         saveBarang();
-        //appCtx.getBean("Hello");
     }
-    
-    private static void saveBarang()
-    {
-    	Barang b = new Barang();
-    	b.setKodeBarang("2");
-    	b.setNamaBarang("barang suram");
-    	appService.simpanBarang(b);
-    }
-    
-    private static void savePenjualan()
-    {
-    	Penjualan p = new Penjualan();
-    	
+    public static void saveBarang(){
+        Barang b = new Barang();
+        b.setKodeBarang("Jono");
+        b.setNamaBarang("Juned");
+        
+        appService.simpanBarang(b);
     }
 }
